@@ -1,4 +1,4 @@
-import { app } from "../shared/firebase-config.js";
+import { app } from "../firebase-config.js";
 
 import {
   getAuth,
