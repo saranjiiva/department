@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/adminstyle.css">
+</head>
+
+<body>
+
+<!-- ===== Sidebar ===== -->
+<div class="sidebar">
+  <h2 class="logo">Biochemistry Admin</h2>
+
+  <ul class="menu">
+    <li onclick="showSection('dashboard')">Dashboard</li>
+    <li onclick="showSection('users')">Manage Users</li>
+    <li onclick="showSection('subjects')">Subjects</li>
+    <li onclick="showSection('attendance')">Attendance Reports</li>
+    <li onclick="logout()">Logout</li>
+  </ul>
+</div>
+
+<!-- ===== Main Content ===== -->
+<div class="main-content">
+
+  <!-- Dashboard -->
+  <section id="dashboard" class="content-section active">
+    <h1>Admin Dashboard</h1>
+    <div class="cards">
+      <div class="card">
+        <h3>Total Students</h3>
+        <p id="totalStudents">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Faculty</h3>
+        <p id="totalFaculty">0</p>
+      </div>
+      <div class="card">
+        <h3>Active Sessions</h3>
+        <p id="activeSessions">0</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manage Users -->
+  <section id="users" class="content-section">
+    <h2>Manage Users</h2>
+
+    <div class="form-row">
+      <input type="text" id="name" placeholder="Full Name">
+      <input type="email" id="email" placeholder="Email">
+      <select id="role">
+        <option value="student">Student</option>
+        <option value="faculty">Faculty</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button onclick="createUser()" class="primary-btn">Create User</button>
+    </div>
+
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- Subjects -->
+  <section id="subjects" class="content-section">
+    <h2>Manage Subjects</h2>
+    <input type="text" id="subjectName" placeholder="Subject Name">
+    <button onclick="addSubject()" class="primary-btn">Add Subject</button>
+
+    <ul id="subjectList"></ul>
+  </section>
+
+  <!-- Attendance Reports -->
+  <section id="attendance" class="content-section">
+    <h2>Attendance Reports</h2>
+    <p>Coming in next module (with filters + export)</p>
+  </section>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.content-section')
+    .forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
