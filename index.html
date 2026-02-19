@@ -1,7 +1,24 @@
-<!Dochtml>
-<head> 
-<topic>Department of Biochemistry</topic>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Academic Portal</title>
+  <link rel="stylesheet" href="shared/shared.css">
 </head>
 <body>
-  We are Gonna MAke it
+
+<div class="login-container">
+  <h2>Academic Login</h2>
+
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <button id="loginBtn">Login</button>
+  <p id="error"></p>
+</div>
+
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="auth.js"></script>
+<script type="module" src="role-router.js"></script>
+
 </body>
+</html>
